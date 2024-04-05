@@ -18,14 +18,7 @@ let questions = [
   "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
   "What is the minimum crew size for the ISS? "
 ];
-let correctAnswers = [
-  "Sally Ride",
-  "true",
-  "40",
-  "Trajectory",
-  "3"
-];
-
+let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
 // let questions;
@@ -84,7 +77,9 @@ function askQuestions() {
 //       score++;
 //     }
 //   }
-//   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+//   let grade;  
+
+//TODO 3.2 use this variable to calculate the candidates score.
 function gradeQuiz(candidateAnswers) {
     let score = 0;
     console.log(`\nCandidate Name: ${candidateName}`);
@@ -97,12 +92,20 @@ function gradeQuiz(candidateAnswers) {
       }
     }
 
-// Calculate and return grade
+// Calculate the candidate score as a percentage and return grade
+//Deetermine Pass/Fail status and convey to the candidate
 let grade = (score / questions.length) * 100;
+let status;
+if (grade >= 80) {
+  status = "PASSED";
+} else {
+  status = "FAILED";
+}
 console.log(`\nYour Grade: ${grade}% (${score} out of ${questions.length} correct)`);
+console.log(`Status: ${status}`);
+
 return grade;
 }
-
 
 function runProgram() {
   askForName();
